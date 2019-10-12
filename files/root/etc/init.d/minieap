@@ -3,6 +3,7 @@ START=90
 
 start()
 {
+    kill $(cat /var/log/minieap-ping.pid 2>/dev/null) 2>/dev/null
     local enable
     local username
     local password
@@ -19,18 +20,19 @@ start()
         fi
         /bin/ash -c "minieap -b3"
     else
-        kill $(cat /var/log/minieap-ping.pid 2>/dev/null) 2>/dev/null
         /bin/ash -c "minieap -k"
     fi
 }
 
 stop()
 {
+    kill $(cat /var/log/minieap-ping.pid 2>/dev/null) 2>/dev/null
     minieap -k
 }
 
 restart()
 {
+    kill $(cat /var/log/minieap-ping.pid 2>/dev/null) 2>/dev/null
     local enable
     local username
     local password
@@ -47,7 +49,6 @@ restart()
         fi
         /bin/ash -c "minieap -k 1"
     else
-        kill $(cat /var/log/minieap-ping.pid 2>/dev/null) 2>/dev/null
         /bin/ash -c "minieap -k"
     fi
 }
