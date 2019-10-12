@@ -4,7 +4,6 @@ config minieap
 	option wait_after_fail '30'
 	option max_fail '3'
 	option no_auto_reauth '1'
-	option daemonize '0'
 	option auth_round '1'
 	option max_retries '3'
 	option pid_file '/var/run/minieap.pid'

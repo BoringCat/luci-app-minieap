@@ -3,18 +3,27 @@ START=90
 
 start()
 {
-    /bin/ash -c "echo DEBUG start"
-    # /bin/ash -c "minieap -b3"
+    local enable
+    local username
+    local password
+    local nic
+    config_get_bool enable $1 enable
+    config_get username $1 username
+    config_get password $1 password
+    config_get nic $1 nic
+    if [ $enable ] && [ $username ] && [ $password ] && [ $ifname ]; then
+        /bin/ash -c "minieap -b3"
+    else
+        /bin/ash -c "minieap -k"
+    fi
 }
 
 stop()
 {
-    /bin/ash -c "echo DEBUG stop"
-    # minieap -k
+    minieap -k
 }
 
 restart()
 {
-    /bin/ash -c "echo DEBUG restart"
-    # minieap -k 1
+    minieap -k 1
 }
