@@ -31,5 +31,23 @@ stop()
 
 restart()
 {
-    minieap -k 1
+    local enable
+    local username
+    local password
+    local nic
+    local pinghost
+    config_get_bool enable $1 enable
+    config_get username $1 username
+    config_get password $1 password
+    config_get nic $1 nic
+    config_get pinghost $1 pinghost
+    if [ $enable ] && [ $username ] && [ $password ] && [ $ifname ]; then
+        if [ $pinghost ]; then
+            /usr/sbin/minieap-ping &
+        fi
+        /bin/ash -c "minieap -k 1"
+    else
+        kill $(cat /var/log/minieap-ping.pid 2>/dev/null) 2>/dev/null
+        /bin/ash -c "minieap -k"
+    fi
 }
