@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-minieap
-PKG_VERSION=1.0.0
+PKG_VERSION=1.0.1
 PKG_RELEASE:=0
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
@@ -46,6 +46,7 @@ define Package/luci-app-minieap/install
 	$(INSTALL_CONF) ./files/root/etc/config/minieap $(1)/etc/config/minieap
 	$(INSTALL_BIN) ./files/root/etc/init.d/minieap $(1)/etc/init.d/minieap
 	$(INSTALL_BIN) ./files/root/usr/sbin/minieap-conver $(1)/usr/sbin/minieap-conver
+	$(INSTALL_BIN) ./files/root/usr/sbin/minieap-ping $(1)/usr/sbin/minieap-ping
 	$(INSTALL_DATA) ./files/luci/model/cbi/minieap/general.lua $(1)/usr/lib/lua/luci/model/cbi/minieap/general.lua
 	$(INSTALL_DATA) ./files/luci/model/cbi/minieap/customfile.lua $(1)/usr/lib/lua/luci/model/cbi/minieap/customfile.lua
 	$(INSTALL_DATA) ./files/luci/model/cbi/minieap/log.lua $(1)/usr/lib/lua/luci/model/cbi/minieap/log.lua
