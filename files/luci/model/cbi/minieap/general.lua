@@ -59,6 +59,13 @@ end
 pinghost = o:taboption("base", Value, "pinghost", translate("PingHost"), translate("Ping host for drop detection, 0.0.0.0 to turn off this feature."))
 pinghost.default = "0.0.0.0"
 
+pingintval = o:taboption("base", Value, "pingintval", translate("Ping intval"), translate("Interval of each ping. (in second) [default: 30]"))
+pingintval.default = "30"
+
+pingcommand = o:taboption("base", Value, "pingcommand", translate("Offline command"), translate("Run Command when ping failed. [default: minieap -k 1]"))
+pingcommand:value("minieap -k 1")
+pingcommand.default = "minieap -k 1"
+
 stage_timeout = o:taboption("advanced", Value, "stage_timeout", translate("Auth Timeout"), translate("802.11X auth timeout (in second). [default: 5]"))
 stage_timeout.default = "5"
 

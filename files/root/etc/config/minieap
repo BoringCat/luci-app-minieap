@@ -1,5 +1,7 @@
 config minieap
 	option pinghost '0.0.0.0'
+	option pingintval '30'
+	option pingcommand 'minieap -k 1'
 	option stage_timeout '5'
 	option wait_after_fail '30'
 	option max_fail '3'

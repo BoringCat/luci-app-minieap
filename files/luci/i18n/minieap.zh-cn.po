@@ -213,3 +213,15 @@ msgstr "网络操作模块"
 
 msgid "Network module for send and recv packages (openwrt support sockraw only)"
 msgstr "选择此网络操作模块（openwrt只支持sockraw）"
+
+msgid "Ping intval"
+msgstr "Ping间隔"
+
+msgid "Interval of each ping. (in second) [default: 30]"
+msgstr "Ping Ping主机的间隔（秒） [默认：30]"
+
+msgid "Offline command"
+msgstr "掉线执行命令"
+
+msgid "Run Command when ping failed. [default: minieap -k 1]"
+msgstr "Ping 检测到掉线后执行的命令 [默认： minieap -k 1]"
