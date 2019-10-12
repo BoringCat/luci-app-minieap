@@ -12,5 +12,6 @@ function index()
         _("minieap"), 10).dependent = true
 
     entry({"admin", "services", "minieap", "general"}, cbi("minieap/general"), _("minieap Settings"), 10).leaf = true
-    entry({"admin", "services", "minieap", "log"}, cbi("minieap/log"), _("minieap LOG"), 20).leaf = true
+    -- entry({"admin", "services", "minieap", "customfile"}, cbi("minieap/customfile"), _("custom configfiles"), 20).leaf = true
+    entry({"admin", "services", "minieap", "log"}, cbi("minieap/log"), _("minieap LOG"), 30).leaf = true
 end

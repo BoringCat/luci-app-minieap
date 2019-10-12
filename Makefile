@@ -21,7 +21,7 @@ define Package/luci-app-minieap/description
 endef
 
 define Package/luci-app-minieap/conffiles
-/etc/config/minieap
+	/etc/config/minieap
 endef
 
 define Build/Prepare
@@ -38,13 +38,16 @@ endef
 define Package/luci-app-minieap/install
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/model/cbi/minieap
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/minieap.*.lmo $(1)/usr/lib/lua/luci/i18n/
 	$(INSTALL_CONF) ./files/root/etc/config/minieap $(1)/etc/config/minieap
 	$(INSTALL_BIN) ./files/root/etc/init.d/minieap $(1)/etc/init.d/minieap
+	$(INSTALL_BIN) ./files/root/usr/sbin/minieap-conver $(1)/usr/sbin/minieap-conver
 	$(INSTALL_DATA) ./files/luci/model/cbi/minieap/general.lua $(1)/usr/lib/lua/luci/model/cbi/minieap/general.lua
+	$(INSTALL_DATA) ./files/luci/model/cbi/minieap/customfile.lua $(1)/usr/lib/lua/luci/model/cbi/minieap/customfile.lua
 	$(INSTALL_DATA) ./files/luci/model/cbi/minieap/log.lua $(1)/usr/lib/lua/luci/model/cbi/minieap/log.lua
 	$(INSTALL_DATA) ./files/luci/controller/minieap.lua $(1)/usr/lib/lua/luci/controller/minieap.lua
 endef
